@@ -1,9 +1,10 @@
+import { Container } from "@/shared/lib/ui";
 import { brand, footer } from "@/shared/config";
 
 export default function Footer() {
   return (
     <footer className="bg-charcoal-deep">
-      <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-10 px-6 pb-8 pt-12 lg:px-[72px] lg:pb-9 lg:pt-16">
+      <Container className="flex flex-col gap-10 pb-8 pt-12 lg:pb-9 lg:pt-16">
         <div className="flex flex-col gap-10 sm:flex-row sm:justify-between">
           <div className="flex flex-col gap-2.5">
             <span className="font-display text-2xl text-cream">
@@ -55,7 +56,7 @@ export default function Footer() {
             {footer.personvern.label}
           </a>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

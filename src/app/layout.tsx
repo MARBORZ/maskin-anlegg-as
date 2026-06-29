@@ -19,7 +19,7 @@ const schibstedGrotesk = Schibsted_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Maskin & Anlegg AS",
+  title: "MK Maskin & Anlegg AS",
   description:
     "Forvaltning og drift av eiendom for borettslag, sameier og næring.",
 };

@@ -15,9 +15,11 @@ export const contact = {
 } as const;
 
 export const brand = {
-  name: "Maskin & Anlegg",
+  name: "MK Maskin & Anlegg",
   fullName: "Maskin & Anlegg AS",
-  mark: "MASKIN & ANLEGG AS",
+  /** Initialer for logo-merket (rune settes mellom dem: M ᛃ K). */
+  initials: "MK",
+  mark: "MK MASKIN & ANLEGG AS",
   tagline: "Effektiv drift. Trygge eiendommer.",
 } as const;
 
@@ -46,6 +48,34 @@ export const hero = {
   taglineLines: ["Effektiv drift.", "Trygge eiendommer."],
   lead: "Eiendomsdrift og vedlikehold for borettslag, sameier og næring — sommer som vinter, alltid én fast kontakt.",
 } as const;
+
+/**
+ * Bildegalleri i hero-seksjonen. Midlertidige eksterne plassholdere.
+ * Bytt `src` til statiske importer fra src/assets/job_example når ekte
+ * bilder er på plass — komponenten mapper bare over denne lista.
+ */
+export const gallery = [
+  {
+    src: "https://picsum.photos/seed/maskin-vaktmester/900/700",
+    alt: "Vaktmester i arbeid på fellesområde",
+  },
+  {
+    src: "https://picsum.photos/seed/maskin-grontanlegg/900/700",
+    alt: "Stell av grøntanlegg og uteområder",
+  },
+  {
+    src: "https://picsum.photos/seed/maskin-vinter/900/700",
+    alt: "Brøyting og strøing om vinteren",
+  },
+  {
+    src: "https://picsum.photos/seed/maskin-eiendom/900/700",
+    alt: "Drift og vedlikehold av eiendom",
+  },
+  {
+    src: "https://picsum.photos/seed/maskin-bygg/900/700",
+    alt: "Tilsyn av bygg og tekniske anlegg",
+  },
+] as const;
 
 export const jera = {
   label: "ÅRSHJULET",
@@ -144,9 +174,9 @@ export const bio = {
   label: "LEDER",
   name: "Ole Martin Karlsen",
   roleLabel: "ROLLE",
-  role: "[rolle — f.eks. Daglig leder / Drift]",
+  role: "Daglig leder",
   omLabel: "OM",
-  om: "[Noen setninger fra Ole Martin om erfaring og hva han er ansvarlig for — teksten avklares med eier]",
+  om: "Som daglig leder er jeg tett på hvert oppdrag. Jeg er opptatt av forutsigbar drift, ryddig utført arbeid og at styret og beboerne alltid har én fast kontakt å forholde seg til — sommer som vinter.",
   contacts: [
     { label: "E-POST", value: contact.email, href: `mailto:${contact.email}` },
     { label: "TELEFON", value: contact.phone, href: contact.phoneHref },

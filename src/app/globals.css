@@ -4,8 +4,11 @@
   /* Surfaces */
   --color-charcoal: #141210;
   --color-charcoal-panel: #1b1915;
+  --color-charcoal-trust: #22201b;
   --color-charcoal-deep: #0c0a09;
   --color-charcoal-photo: #161210;
+
+  --color-error: #c97b4b;
 
   /* Gold */
   --color-gold: #c9a24b;
@@ -73,4 +76,36 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #2c2820;
+}
+
+/* Skeleton-shimmer: tydelig gull-glød som sveiper over charcoal */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(201, 162, 75, 0.16) 50%,
+    transparent 100%
+  );
+}
+
+/* Bevegelse kun på desktop og når brukeren tillater animasjon */
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .shimmer::after {
+    animation: shimmer 1.6s ease-in-out infinite;
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
 }

@@ -1,18 +1,14 @@
 import ContactForm from "./ContactForm";
+import { Container, SectionLabel } from "@/shared/lib/ui";
 import { kontakt } from "@/shared/config";
 
 export default function Kontakt() {
   return (
     <section id="kontakt" className="bg-charcoal">
-      <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-8 px-6 pb-16 pt-[72px] lg:flex-row lg:gap-24 lg:px-[72px] lg:py-[120px]">
+      <Container className="flex flex-col gap-8 pb-16 pt-[72px] lg:flex-row lg:gap-24 lg:py-[120px]">
         {/* Left */}
         <div className="flex flex-col gap-7 lg:w-[480px] lg:shrink-0">
-          <div className="flex items-center gap-3">
-            <span className="h-px w-4 bg-gold" />
-            <span className="font-body text-xs tracking-[2px] text-faint">
-              {kontakt.label}
-            </span>
-          </div>
+          <SectionLabel text={kontakt.label} />
           <h2 className="font-display text-[36px] font-medium leading-[1.02] tracking-[-1.2px] text-cream lg:text-[52px]">
             {kontakt.heading}
           </h2>
@@ -33,7 +29,7 @@ export default function Kontakt() {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-body text-[18px] text-cream transition-colors hover:text-gold"
+                      className="w-fit font-body text-[18px] text-cream transition-colors hover:text-gold"
                     >
                       {d.value}
                     </a>
@@ -52,7 +48,7 @@ export default function Kontakt() {
         <div className="flex-1">
           <ContactForm />
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

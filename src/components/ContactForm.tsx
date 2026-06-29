@@ -77,17 +77,31 @@ export default function ContactForm() {
     }
   }
 
-  return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-7">
-      {rows.map((row, i) => (
-        <div key={i} className="flex flex-col gap-7 sm:flex-row sm:gap-8">
-          {row.map((field) => (
-            <Field key={field.name} field={field} />
-          ))}
-        </div>
-      ))}
+  const sendingNow = status === "sending";
 
-      <div className="flex flex-col gap-3">
+  return (
+    <form
+      onSubmit={handleSubmit}
+      aria-busy={sendingNow}
+      className="flex flex-col gap-7"
+    >
+      <div
+        className={`flex flex-col gap-7 transition-opacity ${sendingNow ? "pointer-events-none opacity-50" : ""}`}
+      >
+        {rows.map((row, i) => (
+          <div key={i} className="flex flex-col gap-7 sm:flex-row sm:gap-8">
+            {row.map((field) => (
+              <Field key={field.name} field={field} />
+            ))}
+          </div>
+        ))}
+      </div>
+
+      {sendingNow && (
+        <div className="shimmer h-1 w-full rounded bg-gold/10" />
+      )}
+
+      <div className="flex flex-col gap-4">
         <button
           type="submit"
           disabled={status === "sending"}
@@ -102,7 +116,7 @@ export default function ContactForm() {
         {status === "success" ? (
           <p className="font-body text-[13px] italic text-gold">{success}</p>
         ) : status === "error" ? (
-          <p className="font-body text-[13px] italic text-[#c97b4b]">{error}</p>
+          <p className="font-body text-[13px] italic text-error">{error}</p>
         ) : (
           <p className="font-body text-[13px] italic text-faint">{micro}</p>
         )}

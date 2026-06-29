@@ -1,12 +1,12 @@
-import { JeraRune } from "@/shared/lib/ui";
+import { Container, JeraRune, Reveal } from "@/shared/lib/ui";
 import { jera } from "@/shared/config";
 
 export default function JeraSection() {
   return (
     <section id="jera" className="bg-charcoal">
-      <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 gap-8 px-6 pb-16 pt-[72px] lg:grid-cols-[380px_1fr] lg:gap-20 lg:px-[72px] lg:py-[100px]">
+      <Container className="grid grid-cols-1 gap-8 pb-16 pt-[72px] lg:grid-cols-[380px_1fr] lg:gap-20 lg:py-[100px]">
         {/* Venstre: tekst + legend */}
-        <div className="flex flex-col gap-7">
+        <Reveal className="flex flex-col gap-7">
           <div className="flex items-center gap-3.5">
             <span className="h-0.5 w-[18px] bg-gold" />
             <span className="font-body text-xs font-semibold tracking-[2px] text-gold">
@@ -42,10 +42,13 @@ export default function JeraSection() {
               </li>
             ))}
           </ul>
-        </div>
+        </Reveal>
 
         {/* Høyre: hjul med rune (kun desktop) */}
-        <div className="relative hidden aspect-square w-full max-w-[760px] items-center justify-center justify-self-center lg:flex">
+        <Reveal
+          delay={0.15}
+          className="relative hidden aspect-square w-full max-w-[760px] items-center justify-center justify-self-center lg:flex"
+        >
           {jera.seasons.map((s, i) => {
             const pos = [
               "left-1/2 top-6 -translate-x-1/2",
@@ -75,7 +78,7 @@ export default function JeraSection() {
               {jera.runeCaption}
             </span>
           </div>
-        </div>
+        </Reveal>
 
         {/* Mobil: rune sentrert under listen */}
         <div className="flex flex-col items-center gap-7 lg:hidden">
@@ -87,7 +90,7 @@ export default function JeraSection() {
             {jera.runeCaption}
           </span>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

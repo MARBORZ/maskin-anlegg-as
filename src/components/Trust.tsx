@@ -1,28 +1,24 @@
+import { Container, Reveal, SectionLabel } from "@/shared/lib/ui";
 import { trust } from "@/shared/config";
 
 export default function Trust() {
   return (
-    <section id="trust" className="bg-[#22201b] lg:bg-charcoal-panel">
-      <div className="mx-auto w-full max-w-[1440px] px-6 pb-16 pt-[72px] lg:px-[72px] lg:py-[120px]">
+    <section id="trust" className="bg-charcoal-trust lg:bg-charcoal-panel">
+      <Container className="pb-16 pt-[72px] lg:py-[120px]">
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-24">
           {/* Left */}
-          <div className="flex max-w-[640px] flex-col gap-7">
-            <div className="flex items-center gap-3">
-              <span className="h-px w-4 bg-gold" />
-              <span className="font-body text-xs tracking-[2px] text-faint">
-                {trust.label}
-              </span>
-            </div>
+          <Reveal className="flex max-w-[640px] flex-col gap-7">
+            <SectionLabel text={trust.label} />
             <h2 className="font-display text-[36px] font-medium leading-[1.02] tracking-[-1.2px] text-cream lg:text-[56px]">
               {trust.heading}
             </h2>
             <p className="font-body text-[17px] leading-[1.55] text-body">
               {trust.lead}
             </p>
-          </div>
+          </Reveal>
 
           {/* Right */}
-          <div className="flex max-w-[420px] flex-col lg:pt-[18px]">
+          <Reveal delay={0.1} className="flex max-w-[420px] flex-col lg:pt-[18px]">
             {trust.points.map((p) => (
               <div
                 key={p.title}
@@ -36,11 +32,11 @@ export default function Trust() {
                 </p>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
 
         {/* Stats */}
-        <div className="mt-16 flex flex-col items-center gap-10 border-t border-gold/20 pt-12 sm:flex-row sm:justify-center sm:gap-20 lg:gap-28">
+        <Reveal className="mt-16 flex flex-col items-center gap-10 border-t border-gold/20 pt-12 sm:flex-row sm:justify-center sm:gap-20 lg:gap-28">
           {trust.stats.map((s) => (
             <div
               key={s.label}
@@ -54,8 +50,8 @@ export default function Trust() {
               </span>
             </div>
           ))}
-        </div>
-      </div>
+        </Reveal>
+      </Container>
     </section>
   );
 }

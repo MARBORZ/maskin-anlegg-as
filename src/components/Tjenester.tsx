@@ -1,3 +1,4 @@
+import { Reveal, SectionLabel } from "@/shared/lib/ui";
 import { tjenester } from "@/shared/config";
 
 export default function Tjenester() {
@@ -6,12 +7,7 @@ export default function Tjenester() {
       <div className="mx-auto w-full max-w-[1440px]">
         {/* Header strip */}
         <div className="flex flex-col gap-4 px-6 pb-8 pt-[72px] sm:flex-row sm:items-center sm:justify-between lg:px-[72px] lg:pt-12">
-          <div className="flex items-center gap-3">
-            <span className="h-px w-4 bg-gold" />
-            <span className="font-body text-xs tracking-[2px] text-faint">
-              {tjenester.label}
-            </span>
-          </div>
+          <SectionLabel text={tjenester.label} />
           <p className="font-display text-[22px] italic text-body">
             {tjenester.tagline}
           </p>
@@ -19,9 +15,11 @@ export default function Tjenester() {
 
         {/* Staves */}
         <div className="grid grid-cols-1 border-t border-gold/20 lg:grid-cols-5">
-          {tjenester.services.map((s) => (
-            <article
+          {tjenester.services.map((s, i) => (
+            <Reveal
+              as="article"
               key={s.name}
+              delay={i * 0.08}
               className="flex flex-col gap-8 border-b border-gold/20 px-6 py-9 lg:gap-0 lg:border-b-0 lg:border-l lg:px-10 lg:py-[60px] lg:[&:first-child]:border-l-0"
             >
               <span className="h-px w-6 bg-gold" />
@@ -36,7 +34,7 @@ export default function Tjenester() {
                   {s.desc}
                 </p>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

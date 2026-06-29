@@ -6,10 +6,11 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-gold/20 bg-charcoal/95 backdrop-blur">
       <div className="mx-auto flex h-[60px] w-full max-w-[1440px] items-center justify-between px-6 lg:h-[88px] lg:px-[72px]">
-        <a href="#" className="flex items-center gap-3">
-          <JeraRune size={16} className="hidden shrink-0 text-gold lg:block" />
-          <span className="font-display text-xl font-normal tracking-[-0.4px] text-cream lg:text-[22px] lg:font-semibold">
-            {brand.name}
+        <a href="#" aria-label={brand.fullName} className="flex items-center">
+          <span className="flex items-center gap-1.5 font-display text-2xl font-semibold tracking-[-0.4px] text-cream lg:text-[26px]">
+            {brand.initials[0]}
+            <JeraRune size={20} className="shrink-0 text-gold" />
+            {brand.initials.slice(1)}
           </span>
         </a>
 
