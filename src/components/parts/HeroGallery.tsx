@@ -90,11 +90,12 @@ export default function HeroGallery() {
       <div className="h-full overflow-hidden" ref={emblaRef}>
         <div className="flex h-full">
           {items.map((g, i) => (
-            <div key={g.src} className="relative h-full min-w-0 flex-[0_0_100%]">
+            <div key={g.alt} className="relative h-full min-w-0 flex-[0_0_100%]">
               <Image
                 src={g.src}
                 alt={g.alt}
                 fill
+                placeholder="blur"
                 sizes="(min-width: 1024px) 600px, 100vw"
                 className="object-cover"
                 priority={i === 0}

@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Fraunces, Schibsted_Grotesk } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/components/sections/Header";
+import Footer from "@/components/sections/Footer";
+import JsonLd from "@/components/parts/JsonLd";
 import { SmoothScroll } from "@/shared/lib/ui";
+import { seo, site, brand } from "@/shared/config";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -19,9 +21,30 @@ const schibstedGrotesk = Schibsted_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "MK Maskin & Anlegg AS",
-  description:
-    "Forvaltning og drift av eiendom for borettslag, sameier og næring.",
+  metadataBase: new URL(site.url),
+  title: {
+    default: seo.title,
+    template: `%s · ${brand.fullName}`,
+  },
+  description: seo.description,
+  keywords: [...seo.keywords],
+  applicationName: brand.fullName,
+  authors: [{ name: brand.fullName }],
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: site.locale,
+    url: site.url,
+    siteName: brand.fullName,
+    title: seo.title,
+    description: seo.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: seo.title,
+    description: seo.description,
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
@@ -34,6 +57,7 @@ export default function RootLayout({
       <body
         className={`${fraunces.variable} ${schibstedGrotesk.variable} antialiased`}
       >
+        <JsonLd />
         <SmoothScroll />
         <Header />
         <main>{children}</main>

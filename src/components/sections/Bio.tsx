@@ -1,6 +1,7 @@
 import Image from "next/image";
 import oleImg from "@/assets/bio/Ole.jpg";
 import { Container, SectionLabel } from "@/shared/lib/ui";
+import ContactDetail from "@/components/parts/ContactDetail";
 import { bio } from "@/shared/config";
 
 export default function Bio() {
@@ -57,17 +58,12 @@ export default function Bio() {
 
           <div className="flex max-w-[460px] flex-col gap-4 pt-2 sm:flex-row sm:justify-between sm:gap-8">
             {bio.contacts.map((c) => (
-              <div key={c.label} className="flex flex-col gap-1">
-                <span className="font-body text-[11px] tracking-[1.5px] text-gold">
-                  {c.label}
-                </span>
-                <a
-                  href={c.href}
-                  className="w-fit font-body text-[15px] text-cream transition-colors hover:text-gold"
-                >
-                  {c.value}
-                </a>
-              </div>
+              <ContactDetail
+                key={c.label}
+                label={c.label}
+                value={c.value}
+                href={c.href}
+              />
             ))}
           </div>
         </div>

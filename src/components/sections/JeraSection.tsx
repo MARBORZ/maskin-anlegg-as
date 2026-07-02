@@ -1,18 +1,13 @@
-import { Container, JeraRune, Reveal } from "@/shared/lib/ui";
+import { Container, JeraRune, Reveal, SectionLabel } from "@/shared/lib/ui";
 import { jera } from "@/shared/config";
 
 export default function JeraSection() {
   return (
     <section id="jera" className="bg-charcoal">
-      <Container className="grid grid-cols-1 gap-8 pb-16 pt-[72px] lg:grid-cols-[380px_1fr] lg:gap-20 lg:py-[100px]">
+      <Container className="grid grid-cols-1 gap-20 pb-8 pt-[72px] lg:grid-cols-[380px_1fr] lg:gap-20 lg:py-[100px]">
         {/* Venstre: tekst + legend */}
         <Reveal className="flex flex-col gap-7">
-          <div className="flex items-center gap-3.5">
-            <span className="h-0.5 w-[18px] bg-gold" />
-            <span className="font-body text-xs font-semibold tracking-[2px] text-gold">
-              {jera.label}
-            </span>
-          </div>
+          <SectionLabel text={jera.label} tone="gold" />
 
           <h2 className="font-display text-[34px] font-medium leading-[1.02] tracking-[-1.1px] text-cream lg:text-[52px]">
             {jera.heading}

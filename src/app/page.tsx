@@ -1,10 +1,10 @@
-import Hero from "@/components/Hero";
-import JeraSection from "@/components/JeraSection";
-import Tjenester from "@/components/Tjenester";
-import Trust from "@/components/Trust";
-import Bio from "@/components/Bio";
-import Kontakt from "@/components/Kontakt";
-import SectionSkeleton from "@/components/SectionSkeleton";
+import Hero from "@/components/sections/Hero";
+import JeraSection from "@/components/sections/JeraSection";
+import Tjenester from "@/components/sections/Tjenester";
+import Trust from "@/components/sections/Trust";
+import Bio from "@/components/sections/Bio";
+import Kontakt from "@/components/sections/Kontakt";
+import SectionSkeleton from "@/components/parts/SectionSkeleton";
 import { LazyReveal } from "@/shared/lib/ui";
 
 export const dynamic = "force-static";

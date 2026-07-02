@@ -1,4 +1,4 @@
-import HeroGallery from "./HeroGallery";
+import HeroGallery from "@/components/parts/HeroGallery";
 import { Reveal } from "@/shared/lib/ui";
 import { hero, cta, contact } from "@/shared/config";
 
