@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/shared/lib/ui";
 import { brand, footer } from "@/shared/config";
 
@@ -49,12 +50,12 @@ export default function Footer() {
               {footer.orgNr}
             </a>
           </span>
-          <a
+          <Link
             href={footer.personvern.href}
             className="font-body text-[13px] text-faint transition-colors hover:text-body"
           >
             {footer.personvern.label}
-          </a>
+          </Link>
         </div>
       </Container>
     </footer>

@@ -1,20 +1,25 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 /**
  * Fanger klikk på interne anker-lenker ("#x" og "/#x"), scroller mykt til
- * målet og holder URL-en ren (uten hash). Lenker av typen "/#x" fra
- * undersider får navigere vanlig hjem — hashen ryddes bort etter ankomst.
+ * målet og holder URL-en ren (uten hash). Fra undersider får <Link>
+ * navigere hjem — hashen ryddes bort etter ankomst (pathname-effekten).
+ * Lytteren kjører i capture-fasen slik at preventDefault() skjer før
+ * Next sin router (Link hopper over navigasjon når defaultPrevented).
  */
 export default function SmoothScroll() {
-  // Rydd bort hash etter navigasjon fra underside (f.eks. /personvern → /#kontakt)
+  const pathname = usePathname();
+
+  // Rydd bort hash etter navigasjon (f.eks. /personvern → /#kontakt)
   useEffect(() => {
     if (!location.hash) return;
     const el = document.getElementById(location.hash.slice(1));
     el?.scrollIntoView({ behavior: "smooth", block: "start" });
     history.replaceState(null, "", location.pathname + location.search);
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     function onClick(e: MouseEvent) {
@@ -30,7 +35,7 @@ export default function SmoothScroll() {
       // Normaliser: "#" | "#x" | "/#x"
       let hash = href;
       if (/^\/#[\w-]+$/.test(href)) {
-        // Fra underside: la nettleseren navigere hjem (hash ryddes på ankomst)
+        // Fra underside: la <Link> navigere hjem (hash ryddes på ankomst)
         if (location.pathname !== "/") return;
         hash = href.slice(1);
       } else if (href !== "#" && !/^#[\w-]+$/.test(href)) {
@@ -47,8 +52,9 @@ export default function SmoothScroll() {
       history.replaceState(null, "", location.pathname + location.search);
     }
 
-    document.addEventListener("click", onClick);
-    return () => document.removeEventListener("click", onClick);
+    document.addEventListener("click", onClick, { capture: true });
+    return () =>
+      document.removeEventListener("click", onClick, { capture: true });
   }, []);
 
   return null;
