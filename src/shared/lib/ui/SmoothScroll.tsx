@@ -3,19 +3,39 @@
 import { useEffect } from "react";
 
 /**
- * Fanger klikk på interne anker-lenker (href="#..."), scroller mykt til
- * målet og fjerner hash-fragmentet fra URL-en — slik at adressen holdes ren.
+ * Fanger klikk på interne anker-lenker ("#x" og "/#x"), scroller mykt til
+ * målet og holder URL-en ren (uten hash). Lenker av typen "/#x" fra
+ * undersider får navigere vanlig hjem — hashen ryddes bort etter ankomst.
  */
 export default function SmoothScroll() {
+  // Rydd bort hash etter navigasjon fra underside (f.eks. /personvern → /#kontakt)
+  useEffect(() => {
+    if (!location.hash) return;
+    const el = document.getElementById(location.hash.slice(1));
+    el?.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.replaceState(null, "", location.pathname + location.search);
+  }, []);
+
   useEffect(() => {
     function onClick(e: MouseEvent) {
       const target = e.target as HTMLElement | null;
-      const anchor = target?.closest<HTMLAnchorElement>('a[href^="#"]');
+      const anchor = target?.closest<HTMLAnchorElement>(
+        'a[href^="#"], a[href^="/#"]',
+      );
       if (!anchor) return;
 
-      const hash = anchor.getAttribute("href");
-      // Kun rene id-ankere (#, #navn) — ignorer alt annet
-      if (!hash || (hash !== "#" && !/^#[\w-]+$/.test(hash))) return;
+      const href = anchor.getAttribute("href");
+      if (!href) return;
+
+      // Normaliser: "#" | "#x" | "/#x"
+      let hash = href;
+      if (/^\/#[\w-]+$/.test(href)) {
+        // Fra underside: la nettleseren navigere hjem (hash ryddes på ankomst)
+        if (location.pathname !== "/") return;
+        hash = href.slice(1);
+      } else if (href !== "#" && !/^#[\w-]+$/.test(href)) {
+        return;
+      }
 
       e.preventDefault();
 

@@ -6,7 +6,7 @@ import { kontakt } from "@/shared/config";
 export default function Kontakt() {
   return (
     <section id="kontakt" className="bg-charcoal">
-      <Container className="flex flex-col gap-8 pb-16 pt-[72px] lg:flex-row lg:gap-24 lg:py-[120px]">
+      <Container className="flex flex-col gap-10 pb-16 pt-[72px] lg:flex-row lg:gap-24 lg:py-[120px]">
         {/* Left */}
         <div className="flex flex-col gap-7 lg:w-[480px] lg:shrink-0">
           <SectionLabel text={kontakt.label} />
@@ -28,6 +28,15 @@ export default function Kontakt() {
               />
             ))}
           </div>
+        </div>
+
+        {/* Skille på mobil — detaljer og skjema er én kolonne der */}
+        <div className="flex items-center gap-4 py-2 lg:hidden">
+          <span className="h-px flex-1 bg-gold/20" />
+          <span className="font-display text-[15px] italic text-gold-muted">
+            Send oss en melding
+          </span>
+          <span className="h-px flex-1 bg-gold/20" />
         </div>
 
         {/* Form */}

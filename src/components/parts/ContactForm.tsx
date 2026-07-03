@@ -15,12 +15,47 @@ function Field({ field }: { field: FormField }) {
   const inputMode = "inputMode" in field ? field.inputMode : undefined;
   const pattern = "pattern" in field ? field.pattern : undefined;
   const title = "title" in field ? field.title : undefined;
+  const options = "options" in field ? field.options : undefined;
   return (
     <div className="flex flex-1 flex-col gap-2">
       <label htmlFor={field.name} className="font-body text-xs tracking-[1.5px] text-gold">
         {field.label}
       </label>
-      {multiline ? (
+      {options ? (
+        <div className="relative">
+          <select
+            id={field.name}
+            name={field.name}
+            required={required}
+            defaultValue=""
+            className={`${inputClass} cursor-pointer appearance-none pr-8 [&:has(option[value='']:checked)]:text-faint`}
+          >
+            <option value="" disabled>
+              {field.placeholder}
+            </option>
+            {options.map((opt) => (
+              <option key={opt} value={opt} className="bg-charcoal text-cream">
+                {opt}
+              </option>
+            ))}
+          </select>
+          {/* Chevron */}
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={1.75}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+            className="pointer-events-none absolute right-1 top-2 text-gold-muted"
+          >
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </div>
+      ) : multiline ? (
         <textarea
           id={field.name}
           name={field.name}

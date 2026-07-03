@@ -1,6 +1,6 @@
 import HeroGallery from "@/components/parts/HeroGallery";
-import { Reveal } from "@/shared/lib/ui";
-import { hero, cta, contact } from "@/shared/config";
+import { JeraRune, Reveal } from "@/shared/lib/ui";
+import { hero, cta, contact, brand } from "@/shared/config";
 
 export default function Hero() {
   return (
@@ -10,8 +10,13 @@ export default function Hero() {
         <div className="relative flex flex-col justify-center gap-8 px-6 pb-10 pt-20 lg:gap-10 lg:px-[72px] lg:py-24">
           <Reveal className="flex items-center gap-4">
             <span className="h-px w-7 bg-gold" />
-            <span className="font-body text-[11px] font-semibold tracking-[2.5px] text-gold-muted">
-              {hero.mark}
+            <span className="flex items-baseline gap-3 font-body text-[13px] font-semibold tracking-[2.5px] text-gold-muted lg:text-[14px]">
+              <span className="flex items-center gap-1.5 font-display text-lg font-semibold tracking-[1px] text-gold lg:text-xl">
+                {brand.initials[0]}
+                <JeraRune size={13} className="shrink-0" />
+                {brand.initials.slice(1)}
+              </span>
+              {hero.mark.replace(new RegExp(`^${brand.initials}\\s*`), "")}
             </span>
           </Reveal>
 

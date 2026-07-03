@@ -17,3 +17,4 @@ export { trust } from "./trust";
 export { bio } from "./bio";
 export { kontakt, type FormField } from "./kontakt";
 export { footer } from "./footer";
+export { personvern } from "./personvern";

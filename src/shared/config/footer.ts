@@ -6,8 +6,8 @@ export const footer = {
     {
       title: "SNARVEIER",
       links: [
-        { href: "#tjenester", label: "Tjenester" },
-        { href: "#kontakt", label: "Kontakt" },
+        { href: "/#tjenester", label: "Tjenester" },
+        { href: "/#kontakt", label: "Kontakt" },
       ],
     },
     {
@@ -18,7 +18,7 @@ export const footer = {
       ],
     },
   ],
-  personvern: { href: "#", label: "Personvern" },
+  personvern: { href: "/personvern", label: "Personvern" },
   // Org.nr rendres som lenke i komponenten — derfor delt opp
   copyrightPrefix: (year: number) => `© ${year} ${brand.fullName} · Org.nr `,
   orgNr: contact.orgNr,
