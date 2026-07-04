@@ -1,16 +1,18 @@
+import { routes } from "./routes";
+
 /**
- * Hovednavigasjon og primær CTA.
- * "/#anker" fungerer både på forsiden (myk scroll) og fra undersider
- * som /personvern (vanlig navigasjon hjem + scroll).
+ * Hovednavigasjon og primær CTA. Lenkene peker på ankere fra rutekartet —
+ * de virker både på forsiden (myk scroll) og fra undersider (klientnavigasjon
+ * hjem via <Link>).
  */
 export const nav = [
-  { href: "/#jera", label: "Jera" },
-  { href: "/#tjenester", label: "Tjenester" },
-  { href: "/#trust", label: "For borettslag" },
-  { href: "/#kontakt", label: "Kontakt" },
+  { href: routes.main.anchors.jera, label: "Jera" },
+  { href: routes.main.anchors.tjenester, label: "Tjenester" },
+  { href: routes.main.anchors.trust, label: "For borettslag" },
+  { href: routes.main.anchors.kontakt, label: "Kontakt" },
 ] as const;
 
 export const cta = {
   label: "Be om tilbud",
-  href: "/#kontakt",
+  href: routes.main.anchors.kontakt,
 } as const;

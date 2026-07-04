@@ -1,17 +1,11 @@
 import type { MetadataRoute } from "next";
-import { site } from "@/shared/config";
+import { site, routes } from "@/shared/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: site.url,
-      changeFrequency: "monthly",
-      priority: 1,
-    },
-    {
-      url: `${site.url}/personvern`,
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-  ];
+  // Alle sider fra rutekartet — forsiden får høyest prioritet.
+  return Object.values(routes).map((route) => ({
+    url: `${site.url}${route.path === "/" ? "" : route.path}`,
+    changeFrequency: route.path === "/" ? "monthly" : "yearly",
+    priority: route.path === "/" ? 1 : 0.3,
+  }));
 }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import HeroGallery from "@/components/parts/HeroGallery";
 import { JeraRune, Reveal } from "@/shared/lib/ui";
 import { hero, cta, contact, brand } from "@/shared/config";
@@ -50,12 +51,12 @@ export default function Hero() {
           </Reveal>
 
           <Reveal delay={0.2} className="flex flex-col gap-[18px]">
-            <a
+            <Link
               href={cta.href}
               className="flex items-center justify-center rounded-[2px] bg-gold py-[18px] font-body text-base font-bold text-charcoal transition-opacity hover:opacity-90"
             >
               {cta.label}
-            </a>
+            </Link>
             <p className="font-body text-[13px] text-faint">
               <a
                 href={contact.phoneHref}

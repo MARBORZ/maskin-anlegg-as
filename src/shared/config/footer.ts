@@ -1,13 +1,14 @@
 import { brand } from "./brand";
 import { contact } from "./contact";
+import { routes } from "./routes";
 
 export const footer = {
   navCols: [
     {
       title: "SNARVEIER",
       links: [
-        { href: "/#tjenester", label: "Tjenester" },
-        { href: "/#kontakt", label: "Kontakt" },
+        { href: routes.main.anchors.tjenester, label: "Tjenester" },
+        { href: routes.main.anchors.kontakt, label: "Kontakt" },
       ],
     },
     {
@@ -18,7 +19,7 @@ export const footer = {
       ],
     },
   ],
-  personvern: { href: "/personvern", label: "Personvern" },
+  personvern: { href: routes.personvern.path, label: "Personvern" },
   // Org.nr rendres som lenke i komponenten — derfor delt opp
   copyrightPrefix: (year: number) => `© ${year} ${brand.fullName} · Org.nr `,
   orgNr: contact.orgNr,

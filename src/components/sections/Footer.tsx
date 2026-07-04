@@ -22,15 +22,25 @@ export default function Footer() {
                 <span className="font-body text-xs tracking-[1.5px] text-gold">
                   {col.title}
                 </span>
-                {col.links.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    className="font-body text-sm text-body transition-colors hover:text-cream"
-                  >
-                    {link.label}
-                  </a>
-                ))}
+                {col.links.map((link) =>
+                  link.href.startsWith("/") ? (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className="font-body text-sm text-body transition-colors hover:text-cream"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      className="font-body text-sm text-body transition-colors hover:text-cream"
+                    >
+                      {link.label}
+                    </a>
+                  ),
+                )}
               </div>
             ))}
           </div>

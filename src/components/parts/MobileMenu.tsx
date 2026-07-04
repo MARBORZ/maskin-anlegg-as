@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import Link from "next/link";
 import { brand, nav, cta, contact } from "@/shared/config";
 
 export default function MobileMenu() {
@@ -40,26 +41,26 @@ export default function MobileMenu() {
       {/* Nav */}
       <nav className="flex flex-col px-6 pt-12">
         {nav.map((link) => (
-          <a
+          <Link
             key={link.href}
             href={link.href}
             onClick={() => setOpen(false)}
             className="border-b border-gold/20 py-6 font-display text-[30px] text-cream"
           >
             {link.label}
-          </a>
+          </Link>
         ))}
       </nav>
 
       {/* CTA */}
       <div className="px-6 pt-10">
-        <a
+        <Link
           href={cta.href}
           onClick={() => setOpen(false)}
           className="flex h-[52px] items-center justify-center rounded-[2px] bg-gold font-body text-base font-semibold text-charcoal"
         >
           {cta.label}
-        </a>
+        </Link>
       </div>
 
       {/* Bottom */}

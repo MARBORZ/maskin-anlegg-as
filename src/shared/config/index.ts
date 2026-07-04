@@ -4,6 +4,7 @@
  * skal ikke ha statiske data. Importér fra "@/shared/config".
  */
 export { site } from "./site";
+export { routes } from "./routes";
 export { seo } from "./seo";
 export { contact } from "./contact";
 export { brand } from "./brand";

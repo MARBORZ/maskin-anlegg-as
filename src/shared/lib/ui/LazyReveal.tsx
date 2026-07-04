@@ -10,6 +10,11 @@ type LazyRevealProps = {
   skeleton: React.ReactNode;
   /** Reservert høyde mens skjelettet vises (unngår layout-hopp). */
   minHeight?: number;
+  /**
+   * Anker-id (f.eks. "kontakt"). Må ligge på wrapperen — ikke på innholdet —
+   * slik at #-lenker finner målet FØR seksjonen er montert.
+   */
+  id?: string;
 };
 
 /**
@@ -24,6 +29,7 @@ export default function LazyReveal({
   children,
   skeleton,
   minHeight = 600,
+  id,
 }: LazyRevealProps) {
   const isDesktop = useIsDesktop();
   const reduceMotion = useReducedMotion();
@@ -34,7 +40,11 @@ export default function LazyReveal({
   const showContent = !animate || inView;
 
   return (
-    <div ref={ref} style={{ minHeight: showContent ? undefined : minHeight }}>
+    <div
+      ref={ref}
+      id={id}
+      style={{ minHeight: showContent ? undefined : minHeight }}
+    >
       {!showContent ? (
         skeleton
       ) : animate ? (

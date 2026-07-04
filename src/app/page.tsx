@@ -16,10 +16,11 @@ export default function Home() {
       <JeraSection />
       <Tjenester />
       <Trust />
-      <LazyReveal skeleton={<SectionSkeleton />} minHeight={700}>
+      {/* Anker-id ligger på wrapperen slik at #-lenker virker før innholdet er montert */}
+      <LazyReveal id="om" skeleton={<SectionSkeleton />} minHeight={700}>
         <Bio />
       </LazyReveal>
-      <LazyReveal skeleton={<SectionSkeleton />} minHeight={700}>
+      <LazyReveal id="kontakt" skeleton={<SectionSkeleton />} minHeight={700}>
         <Kontakt />
       </LazyReveal>
     </>

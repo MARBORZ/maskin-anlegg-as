@@ -6,7 +6,7 @@ import { bio } from "@/shared/config";
 
 export default function Bio() {
   return (
-    <section id="om" className="bg-charcoal lg:bg-charcoal-panel">
+    <section className="bg-charcoal lg:bg-charcoal-panel">
       <Container className="flex flex-col gap-8 pb-16 pt-[72px] lg:flex-row lg:justify-between lg:gap-20 lg:py-[120px]">
         <div className="group relative h-[360px] w-full shrink-0 overflow-hidden border border-gold/20 lg:h-[460px] lg:w-[340px]">
           <Image

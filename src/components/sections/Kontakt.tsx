@@ -5,7 +5,7 @@ import { kontakt } from "@/shared/config";
 
 export default function Kontakt() {
   return (
-    <section id="kontakt" className="bg-charcoal">
+    <section className="bg-charcoal">
       <Container className="flex flex-col gap-10 pb-16 pt-[72px] lg:flex-row lg:gap-24 lg:py-[120px]">
         {/* Left */}
         <div className="flex flex-col gap-7 lg:w-[480px] lg:shrink-0">

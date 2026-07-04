@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import { Container, SectionLabel } from "@/shared/lib/ui";
-import { personvern } from "@/shared/config";
+import { personvern, routes } from "@/shared/config";
 
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
   title: "Personvern",
   description: personvern.intro,
-  alternates: { canonical: "/personvern" },
+  alternates: { canonical: routes.personvern.path },
 };
 
 export default function PersonvernPage() {
