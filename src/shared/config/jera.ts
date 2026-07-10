@@ -1,9 +1,13 @@
 export const jera = {
   label: "ÅRSHJULET",
   heading: "Et tegn for årets gang.",
-  lead: "Eiendommen krever ulike grep gjennom året. Vi har én avtale som dekker alle tolv månedene — og en fast person som kjenner ditt bygg fra mars til mars.",
+  lead: [
+    "Jera er det gamle tegnet for året som går rundt — for såing, vekst og høst som avløser hverandre, sesong etter sesong. Det er årshjulet: alt henger sammen, og hver årstid har sitt arbeid.",
+    "Slik ser vi på eiendommen din. Én avtale følger hele hjulet gjennom alle tolv månedene, og en fast person kjenner bygget fra mars til mars — år etter år.",
+  ],
   runeLabel: "JERA",
   runeCaption: "årets gang",
+  runeSub: "Fire sesonger, ett arbeidsår.",
   seasons: [
     {
       name: "Vår",

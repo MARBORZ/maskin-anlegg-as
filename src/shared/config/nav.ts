@@ -6,7 +6,7 @@ import { routes } from "./routes";
  * hjem via <Link>).
  */
 export const nav = [
-  { href: routes.main.anchors.jera, label: "Jera" },
+  { href: routes.main.anchors.jera, label: "Årshjulet" },
   { href: routes.main.anchors.tjenester, label: "Tjenester" },
   { href: routes.main.anchors.trust, label: "For borettslag" },
   { href: routes.main.anchors.kontakt, label: "Kontakt" },

@@ -13,9 +13,16 @@ export default function JeraSection() {
             {jera.heading}
           </h2>
 
-          <p className="font-body text-[17px] font-normal leading-[1.55] text-body">
-            {jera.lead}
-          </p>
+          <div className="flex flex-col gap-4">
+            {jera.lead.map((para, i) => (
+              <p
+                key={i}
+                className="font-body text-[17px] font-normal leading-[1.55] text-body"
+              >
+                {para}
+              </p>
+            ))}
+          </div>
 
           <ul className="flex flex-col gap-[18px] pt-7">
             {jera.seasons.map((s) => (
@@ -69,9 +76,14 @@ export default function JeraSection() {
             <span className="h-px w-6 bg-gold-muted" />
             <JeraRune size={220} className="my-2 text-gold" />
             <span className="h-px w-6 bg-gold-muted" />
-            <span className="font-display text-base italic text-gold-muted">
-              {jera.runeCaption}
-            </span>
+            <div className="flex flex-col items-center gap-2">
+              <span className="font-display text-base italic text-gold-muted">
+                {jera.runeCaption}
+              </span>
+              <span className="font-body text-[12px] tracking-[0.3px] text-body">
+                {jera.runeSub}
+              </span>
+            </div>
           </div>
         </Reveal>
 
@@ -81,9 +93,14 @@ export default function JeraSection() {
             {jera.runeLabel}
           </span>
           <JeraRune size={120} className="my-1 text-gold" />
-          <span className="font-display text-base italic text-gold-muted">
-            {jera.runeCaption}
-          </span>
+          <div className="flex flex-col items-center gap-2">
+            <span className="font-display text-base italic text-gold-muted">
+              {jera.runeCaption}
+            </span>
+            <span className="font-body text-[12px] tracking-[0.3px] text-body">
+              {jera.runeSub}
+            </span>
+          </div>
         </div>
       </Container>
     </section>
