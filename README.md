@@ -1,8 +1,8 @@
 # maskin-anlegg-as
 
-Landing page for MK Maskin & Anlegg AS – Norwegian company that takes care of property for borettslag, sameier and businesses. Client project.
+Landing page for MK Maskin & Anlegg AS, a Norwegian company that maintains properties for housing cooperatives and businesses. Client project.
 
-Next.js, Motion for animations, Embla for carousels. Contact form sends email through Resend from `api/contact`. Hosted on Vercel.
+Next.js (App Router), Motion for animations, Embla for the image carousels. The contact form sends mail through Resend from a route handler. Hosted on Vercel.
 
 ## Run
 
@@ -11,4 +11,4 @@ npm install
 npm run dev
 ```
 
-Form needs `RESEND_API_KEY` in `.env.local`.
+The contact form needs `RESEND_API_KEY` in `.env.local`.
